@@ -7,7 +7,6 @@ RCS
 .DS_Store
 *.[oa]
 RCS/
-snapshots/
 .zenconfig
 workspace/
 workspace/work
