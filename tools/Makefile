@@ -85,7 +85,8 @@ all: clean verilator
 clean:
 	rm -rf *.log *.s *.hex *.dis *.tbl irun* vcs* simv* *.map snapshots swerv* \
 	verilator* *.exe obj* *.o ucli.key vc_hdrs.h csrc *.csv \
-	work dataset.asdb  library.cfg
+	work dataset.asdb  library.cfg\
+	swerv.fsdb swerv.dump.* vfastLog verdiLog nova*
 
 # If define files do not exist, then run swerv.config.
 ${BUILD_DIR}/defines.h :
@@ -107,11 +108,9 @@ verilator-build: ${TBFILES} ${BUILD_DIR}/defines.h test_tb_top.cpp
 
 vcs-build: ${TBFILES} ${BUILD_DIR}/defines.h
 	$(VCS) -full64 -assert svaext -sverilog +error+500 \
-                +incdir+${RV_ROOT}/design/lib \
-                +incdir+${RV_ROOT}/design/include \
-		+incdir+${BUILD_DIR}  +libext+.v\
-		 $(defines) -f ${RV_ROOT}/testbench/flist\
-		 ${TBFILES} \
+	  +libext+.v\
+		 -f ${RV_ROOT}/testbench/flist\
+		 -fsdb\
 		 -l vcs_compile.log
 	touch vcs-build
 

@@ -431,7 +431,6 @@ module tb_top;
         preload_iccm();
 
 `ifndef VERILATOR
-        if($test$plusargs("dumpon")) $dumpvars;
         forever  core_clk = #5 ~core_clk;
 `endif
     end
@@ -1108,7 +1107,11 @@ endfunction
 /* verilator lint_on CASEINCOMPLETE */
 /* verilator lint_on WIDTH */
 
-
+initial
+begin
+    $fsdbDumpfile("swerv.fsdb",32);
+    $fsdbDumpvars(0,tb_top);
+end
 endmodule
 `ifdef RV_BUILD_AXI4
 `include "axi_lsu_dma_bridge.sv"
