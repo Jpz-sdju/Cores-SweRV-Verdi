@@ -92,6 +92,11 @@ clean:
 ${BUILD_DIR}/defines.h :
 	BUILD_PATH=${BUILD_DIR} ${SWERV_CONFIG} -target=$(target) $(CONF_PARAMS)
 
+
+##high perf
+# ${BUILD_DIR}/defines.h :
+# 	BUILD_PATH=${BUILD_DIR} ${SWERV_CONFIG} -set -set=iccm_enable=1 -unset=icache_enable -iccm_size=64 -dccm_size=64 -btb_size=512 -bht_size=2048
+
 ##################### Verilog Builds #####################################
 
 verilator-build: ${TBFILES} ${BUILD_DIR}/defines.h test_tb_top.cpp
@@ -108,10 +113,12 @@ verilator-build: ${TBFILES} ${BUILD_DIR}/defines.h test_tb_top.cpp
 
 vcs-build: ${TBFILES} ${BUILD_DIR}/defines.h
 	$(VCS) -full64 -assert svaext -sverilog +error+500 \
-	  +libext+.v\
-		 -f ${RV_ROOT}/testbench/flist\
+		+incdir+${BUILD_DIR}  +libext+.v\
+		  -f ${RV_ROOT}/tools/flist\
+		 ${TBFILES} \
 		 -fsdb\
-		 -l vcs_compile.log
+		 -l vcs_compile.log\
+		 -top tb_top
 	touch vcs-build
 
 irun-build: ${TBFILES} ${BUILD_DIR}/defines.h
@@ -181,6 +188,10 @@ program.hex: $(OFILES) $(LINK)
 	$(GCC_PREFIX)-gcc -I${BUILD_DIR} ${TEST_CFLAGS} ${ABI} -nostdlib -c $< -o $@
 endif
 endif
+
+
+verdi:
+	verdi -f flist -ssf swerv.fsdb -sv -top tb_top
 
 help:
 	@echo Make sure the environment variable RV_ROOT is set.
