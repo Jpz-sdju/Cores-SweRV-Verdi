@@ -4,6 +4,7 @@ This repository contains the EH1 SweRV Core<sup>TM</sup>  design RTL
 
 ## License
 
+asjdfjaslfdl
 By contributing to this project, you agree that your contribution is governed by [Apache-2.0](LICENSE).  
 Files under the [tools](tools/) directory may be available under a different license. Please review individual file for details.
 
