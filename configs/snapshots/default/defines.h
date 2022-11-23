@@ -1,7 +1,7 @@
 // NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE
-// This is an automatically generated file by ICer on Tue Nov 22 23:21:54 CST 2022
+// This is an automatically generated file by ICer on Wed Nov 23 19:08:41 CST 2022
 //
-// cmd:    swerv -target=default 
+// cmd:    swerv -set=iccm_enable 
 //
 #define RV_INST_ACCESS_MASK5 0xffffffff
 #define RV_DATA_ACCESS_ENABLE4 0x0
@@ -82,6 +82,7 @@
 #define RV_XLEN 32
 #define RV_TARGET default
 #define RV_ICCM_NUM_BANKS 8
+#define RV_ICCM_ENABLE 1
 #define RV_ICCM_BITS 19
 #define RV_ICCM_BANK_BITS 3
 #define RV_ICCM_ROWS 16384

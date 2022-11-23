@@ -1,7 +1,7 @@
 #  NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE
-#  This is an automatically generated file by ICer on Tue Nov 22 23:21:54 CST 2022
+#  This is an automatically generated file by ICer on Wed Nov 23 19:08:41 CST 2022
 # 
-#  cmd:    swerv -target=default 
+#  cmd:    swerv -set=iccm_enable 
 # 
 # To use this in a perf script, use 'require $RV_ROOT/configs/config.pl'
 # Reference the hash via $config{name}..
@@ -189,6 +189,7 @@
                      },
             'iccm' => {
                         'iccm_num_banks' => '8',
+                        'iccm_enable' => 1,
                         'iccm_bits' => 19,
                         'iccm_bank_bits' => 3,
                         'iccm_rows' => '16384',

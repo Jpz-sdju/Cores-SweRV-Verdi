@@ -34,7 +34,7 @@ VERILATOR = verilator
 VLOG = qverilog
 RIVIERA = riviera
 GCC_PREFIX = riscv64-unknown-elf
-BUILD_DIR = snapshots/${snapshot}
+BUILD_DIR = ${RV_ROOT}/configs/snapshots/${snapshot}
 TBDIR = ${RV_ROOT}/testbench
 
 # Define default test name
