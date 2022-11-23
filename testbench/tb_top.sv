@@ -1109,7 +1109,7 @@ endfunction
 
 initial
 begin
-    $fsdbDumpfile("swerv.fsdb",32);
+    $fsdbDumpfile("swerv.fsdb",100);
     $fsdbDumpvars(0,tb_top);
 end
 endmodule
