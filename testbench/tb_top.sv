@@ -1110,7 +1110,7 @@ endfunction
 initial
 begin
     $fsdbDumpfile("swerv.fsdb",100);
-    $fsdbDumpvars(0,tb_top);
+    $fsdbDumpvars(0,tb_top,"+all");
 end
 endmodule
 `ifdef RV_BUILD_AXI4
