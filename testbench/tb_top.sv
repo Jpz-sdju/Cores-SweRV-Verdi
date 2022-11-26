@@ -415,7 +415,8 @@ module tb_top;
         jtag_id[31:28] = 4'b1;
         jtag_id[27:12] = '0;
         jtag_id[11:1]  = 11'h45;
-        reset_vector = 32'h0;
+        // reset_vector = 32'h0;
+        reset_vector = `RV_RESET_VEC;
         nmi_vector   = 32'hee000000;
         nmi_int   = 0;
 
@@ -1109,7 +1110,7 @@ endfunction
 
 initial
 begin
-    $fsdbDumpfile("swerv.fsdb",100);
+    $fsdbDumpfile("swerv.fsdb",150);
     $fsdbDumpvars(0,tb_top,"+all");
 end
 endmodule
